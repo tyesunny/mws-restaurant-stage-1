@@ -137,6 +137,7 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  */
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
+  li.role = 'listitem';
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
@@ -145,6 +146,7 @@ createRestaurantHTML = (restaurant) => {
   li.append(image);
 
   const name = document.createElement('h1');
+  name.tabIndex = 0;
   name.innerHTML = restaurant.name;
   li.append(name);
 

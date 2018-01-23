@@ -40,6 +40,7 @@ fetchRestaurantFromURL = (callback) => {
         return;
       }
       fillRestaurantHTML();
+
       callback(null, restaurant)
     });
   }
@@ -51,9 +52,12 @@ fetchRestaurantFromURL = (callback) => {
 fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
   name.innerHTML = restaurant.name;
+  name.tabIndex = -1;
+  name.focus();
 
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
+  address.tabIndex = 0;
 
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img'
@@ -88,6 +92,8 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
     row.appendChild(time);
 
     hours.appendChild(row);
+    // address review: make hous tabable
+    hours.tabIndex = 0;
   }
 }
 
@@ -98,6 +104,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h2');
   title.innerHTML = 'Reviews';
+  title.tabIndex = 0;
   container.appendChild(title);
 
   if (!reviews) {
@@ -118,6 +125,8 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
+  li.role = 'listitem';
+
   const name = document.createElement('p');
   name.innerHTML = review.name;
   li.appendChild(name);

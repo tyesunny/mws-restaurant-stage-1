@@ -167,9 +167,16 @@ nav h1 a {
 	justify-content: space-between;
 }
 
-@media screen and (min-width:650px) {
+@media screen and (min-width:600px) {
 	#restaurants-list li {
 		max-width: 40%;
+		display: block;
+	}
+}
+
+@media screen and (min-width:1200px) {
+	#restaurants-list li {
+		max-width: 20%;
 		display: block;
 	}
 }
@@ -283,10 +290,14 @@ nav h1 a {
 
 
 
-/*Split view for larger screens */
-@media screen and (min-width: 1000px) {
+/* Split view for larger screens */
+
+/* Optimum break point: 600px, 900px, 1200px, and 1800px */
+/* https://medium.freecodecamp.org/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862 */
+
+@media screen and (min-width: 1200px) {
   #breadcrumb {
-    width: 50%
+    width: 50%;
   }
   .inside #map-container {
     background: blue none repeat scroll 0 0;
